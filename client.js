@@ -1,11 +1,12 @@
+
 const net = require('net');
 
-const connect = function() {
-  const conn = net.createConnection({ 
+const connect = function () {
+  const conn = net.createConnection({
     host: 'localhost',
     port: 50541
   });
-  conn.setEncoding('utf8'); 
+  conn.setEncoding('utf8');
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
@@ -15,9 +16,18 @@ const connect = function() {
   conn.on('connect', () => {
     conn.write('Name: JLM');
   });
+
+
+  
+  conn.on('connect', () => {
+    setInterval(() => {
+    conn.write('Move: down');
+  }, 50);
+  });
+  
   
   return conn;
 };
 
-module.exports = {connect};
+module.exports = { connect };
 
