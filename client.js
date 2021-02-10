@@ -13,7 +13,7 @@ const connect = function() {
     console.log('Successfully connected to game server');
   });
   conn.on('connect', () => {
-    conn.write('Name: ERM');
+    conn.write('Name: JLM');
   });
   
   return conn;
